@@ -2,13 +2,9 @@ const Spell = require ('../models/spell.models');
 
 // see all spells
 const seeSpells = async (req,res)=>{
-    Spell.find({}, function(err, spells) {
-        let spellMap = {};
-        spells.forEach(function(spell) {
-          spellMap[spells._id] = spell;
-        });
-        res.send(spellMap);  
-      }).lean().sort();
+    Spell.find({}).then(function (spells) {
+        res.send(spells);
+        })
 }
 // see a specific spell
 const oneSpell = async (req,res)=>{
