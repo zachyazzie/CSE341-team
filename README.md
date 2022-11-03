@@ -9,3 +9,8 @@ or
 $ pnpm install
 $ pnpm run dev
 ```
+## Routes
+```
+http://localhost:8080/spell
+http://localhost:8080/api-docs
+```
