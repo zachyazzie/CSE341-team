@@ -1,33 +1,16 @@
-const express = require('express');
-const cors = require('cors');
+const express = require('express'); 
 const app = express();
-const mongoose = require('mongoose');
-const dotenv = require('dotenv');
-dotenv.config();
+const cors = require("cors");
+app.use(express.json());
+require("dotenv").config();
+require('./src/db/database')
+const {
+    errorLogger,
+    errorResponder,
+    invalidPathHandler,
+} = require('./src/middleware/middleware')
+const PORT = 8080;
 
-const port = process.env.PORT || 8080;
-
-app
-  .use(cors())
-  .use(express.json())
-  .use(express.urlencoded({ extended: true }))
-  .use('/', require('./routes'));
-
-process.on('uncaughtException', (err, origin) => {
-  console.log(
-    process.stderr.fd,
-    `caught exception: :{err}\n` + `Exception origin: ${origin}`
-  );
-});
-
-//Connect to DB
-mongoose
-  .connect(process.env.DB_CONNECTION_STRING)
-
-  .then(() => {
-    app.listen(port);
-    console.log(`Connected to DB and listening on ${port}`);
-  })
-  .catch((err) => {
-    console.error('Error connecting to Mongo', err);
-  });
+app.use('/', require('./src/routes'))   
+app.invalidPathHandler;
+app.listen(PORT);
