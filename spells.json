@@ -1,0 +1,11 @@
+{
+    "spell":{
+        "level": "8",
+        "name": "Abi-Dalzim’s Horrid Wilting ",
+        "casting_time": "1 action",
+        "duration": "instantaneous",
+        "range": "150 ft",
+        "attack_save": "CON save",
+        "effect": "Necrotic"
+    }
+}
