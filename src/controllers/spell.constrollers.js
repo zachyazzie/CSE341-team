@@ -2,9 +2,13 @@ const Spell = require ('../models/spell.models');
 
 // see all spells
 const seeSpells = async (req,res)=>{
+    try{
     Spell.find({}).then(function (spells) {
-        res.send(spells);
+        res.status(201).send(spells);
         })
+    }catch(err){
+        res.status(500)
+    }
 }
 // see a specific spell
 const oneSpell = async (req,res)=>{
