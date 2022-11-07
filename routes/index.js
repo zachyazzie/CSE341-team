@@ -7,5 +7,6 @@ const weapons = require('./weapons');
 const spells = require('./spells');
 
 router.use('/weapons', weapons);
+router.use('/characters', characters);
 
 module.exports = router;

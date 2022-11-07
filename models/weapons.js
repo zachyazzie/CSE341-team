@@ -11,4 +11,4 @@ const weaponsSchema = new Schema({
   weight: { type: Number },
 });
 
-module.exports = model('Weapons', weaponsSchema);
+module.exports = model('Weapons', weaponsSchema), weaponsSchema;
