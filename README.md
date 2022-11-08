@@ -6,3 +6,4 @@ http://localhost:8080/api-docs
 http://localhost:8080/weapons/all
 http://localhost:8080/weapons/create
 ```
+Eric - test add comments
