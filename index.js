@@ -28,6 +28,8 @@ app
 .use(express.urlencoded({ extended: true }))
 .use('/', require('./routes'));
 
+app.invalidPathHandler;
+
 
 // I commented this out because it was not giving me a clue on the actual problem
 
