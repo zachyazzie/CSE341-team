@@ -32,3 +32,5 @@ const userSchema = new Schema(
 );
 
 module.exports = model("User", userSchema);
+
+// ADD ARRAY OF CHARACTERS - BUT WAIT TO HEAR FROM TEAM
