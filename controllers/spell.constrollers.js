@@ -6,11 +6,22 @@ const seeSpells = async (req,res)=>{
         const spells = await Spell.find({})
         .lean()
         .sort({date: 'desc'});
-        res.render('../views/spells/all-spells.hbs', { spells }).status(200)
+        res.render('../views/spells/all-spells.hbs', { spells }).status(200);
     }catch(err){
         res.status(500)
     }
 }
+const testGetSpells = async (req, res) => {
+    try{
+        const spells = await Spell.find({})
+        .lean()
+        .sort({date: 'desc'});
+        res.status(200).json(spells);
+    }catch(err){
+        res.status(500)
+    }
+}
+
 // see a specific spell
 const oneSpell = async (req,res)=>{
     const spellFound = await Spell.findById(req.params.id).sort({date: 'desc'})
@@ -56,5 +67,6 @@ module.exports = {
     newSpell,
     oneSpell,
     editSpell,
-    seeEdition
+    seeEdition,
+    testGetSpells
 }

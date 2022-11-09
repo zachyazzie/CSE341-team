@@ -12,14 +12,25 @@
     "http"
   ],
   "paths": {
+    "/": {
+      "get": {
+        "description": "",
+        "parameters": [],
+        "responses": {}
+      }
+    },
+    "/about": {
+      "get": {
+        "description": "",
+        "parameters": [],
+        "responses": {}
+      }
+    },
     "/weapons/all": {
       "get": {
         "description": "",
         "parameters": [],
         "responses": {
-          "200": {
-            "description": "OK"
-          },
           "500": {
             "description": "Internal Server Error"
           }
@@ -290,14 +301,31 @@
         "description": "",
         "parameters": [],
         "responses": {
-          "200": {
-            "description": "OK"
-          },
           "500": {
             "description": "Internal Server Error"
           }
         }
-      },
+      }
+    },
+    "/spell/one/{id}": {
+      "get": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/spell/add": {
       "post": {
         "description": "",
         "parameters": [
@@ -339,23 +367,7 @@
         }
       }
     },
-    "/spell/{id}": {
-      "get": {
-        "description": "",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      },
+    "/spell/edit/{id}": {
       "put": {
         "description": "",
         "parameters": [
@@ -396,12 +408,10 @@
             }
           }
         ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      },
+        "responses": {}
+      }
+    },
+    "/spell/delete/{id}": {
       "delete": {
         "description": "",
         "parameters": [
@@ -412,9 +422,19 @@
             "type": "string"
           }
         ],
+        "responses": {}
+      }
+    },
+    "/spell/test": {
+      "get": {
+        "description": "",
+        "parameters": [],
         "responses": {
           "200": {
             "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
           }
         }
       }

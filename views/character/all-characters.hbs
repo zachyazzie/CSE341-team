@@ -1,18 +1,20 @@
 <div class="row">
-    {{#each games}}
+    {{#each characters}}
     <div class="col-md-3">
         <div class="card">
             <div class="card-body ">
-                <h4 class="card-title d-flex justify-content-between align-items-center">{{title}}
-                     <a href="/app/app/games/games/edit/{{_id}}"><i class="fas fa-edit"></i></a></h4> 
-                <p>{{description}}</p>
-                <p>{{type}}</p>
-                <p>${{price}}</p>
-                <p>{{engine}}</p>
-                <p>{{platform}}</p>
-                <p>{{classification}}</p>
+                <h4 class="card-title d-flex justify-content-between align-items-center">{{characterName}}
+                     <a href="/characters/{{_id}}"><i class="fas fa-edit"></i></a></h4> 
+                <p>{{characterName}}</p>
+                <p>{{class}}</p>
+                <p>{{race}}</p>
+
+                <p>{{armorClass}}</p>
+                <p>{{speed}}</p>
+                <p>{{hitPointMax}}</p>
+                <p>{{spellsKnown}}</p>
                  <!-- DELETE REQUEST -->
-        <form action="/app/app/games/games/delete/{{_id}}?_method=DELETE" method="POST">
+        <form action="/character/delete/{{_id}}?_method=DELETE" method="POST">
           <input type="hidden" name="_method" value="DELETE">
           <button type="submit" class="btn btn-danger btn-block btn-sm">Delete</button>
         </form>
@@ -22,9 +24,9 @@
      {{else}}
   <div class="card mx-auto">
     <div class="card-body">
-      <h1>Hello {{user.name}}</h1>
-      <p clsss="lead">There are no games yet.</p>
-      <a href="/app/app/games/games/add" class="btn btn-success btn-block">Create One!</a>
+      <h1>Hello</h1>
+      <p clsss="lead">There are no characters yet.</p>
+      <a href="/characters/add" class="btn btn-success btn-block">Create One!</a>
     </div>
   </div>
   {{/each}}

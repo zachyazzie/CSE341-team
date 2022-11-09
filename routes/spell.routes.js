@@ -6,21 +6,25 @@ const {
     seeSpells,
     newSpell,
     oneSpell,
-    editSpell
+    editSpell,
+    testGetSpells
 } = require('../controllers/spell.constrollers')
 // Get all spells
 router.get('/', seeSpells)
 
 //Get specific spellings
-router.get('/:id', oneSpell)
+router.get('/one/:id', oneSpell)
 
 //Post new spellings
 router.post('/add', newSpell)
 
 //Update spells
-router.put('/:id', editSpell)
+router.put('/edit/:id', editSpell)
 
 //Delete spells
-router.delete('/:id', deleteSpell)
+router.delete('/delete/:id', deleteSpell)
+
+//Test Spell Routes
+router.get('/test', testGetSpells)
 
 module.exports = router;
