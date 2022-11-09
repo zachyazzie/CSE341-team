@@ -1,15 +1,24 @@
 {
-  "name": "dandd",
+  "name": "cse341-team",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "dev": " nodemon index.js",
-    "test": "cross-env NODE_ENV=test jest --watchAll"
+    "test": "cross-env NODE_ENV=test jest --watchAll",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zachyazzie/CSE341-team.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zachyazzie/CSE341-team/issues"
+  },
+  "homepage": "https://github.com/zachyazzie/CSE341-team#readme",
   "dependencies": {
     "body-parser": "^1.20.1",
     "cors": "^2.8.5",
@@ -17,6 +26,7 @@
     "dotenv": "^16.0.3",
     "dotenv-config": "^0.1.1",
     "express": "^4.18.2",
+    "express-validator": "^6.14.2",
     "mongodb": "^4.11.0",
     "mongoose": "^6.7.1",
     "nodemon": "^2.0.20",
