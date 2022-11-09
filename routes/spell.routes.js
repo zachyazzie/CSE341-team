@@ -15,7 +15,7 @@ router.get('/', seeSpells)
 router.get('/:id', oneSpell)
 
 //Post new spellings
-router.post('/', newSpell)
+router.post('/add', newSpell)
 
 //Update spells
 router.put('/:id', editSpell)
