@@ -4,7 +4,7 @@ const Spell = require ('../models/spell.models');
 const seeSpells = async (req,res)=>{
     try{
     Spell.find({}).then(function (spells) {
-        res.status(201).send(spells);
+        res.status(200).send(spells);
         })
     }catch(err){
         res.status(500)

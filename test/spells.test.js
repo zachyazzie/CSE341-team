@@ -1,13 +1,19 @@
 
-const request = require( "supertest");
 
-const baseURL = 'http://localhost:8080';
+const supertest = require( "supertest");
+const app = "http://localhost:8080"
+const api = supertest(app)
 
-// First test made
-describe("Get all spells", () => {
-    it("should get all spells", async () => {
-        const response = await request(baseURL).get("/spell")
-        expect(response.statusCode).toBe(404);
-        expect(response.body.error).toBe(undefined);
-    });
-  });
+
+
+test('Spells are returned as JSON', async ()=>{
+    await api
+    .get('/spell')
+    .expect(200)
+    .expect('Content-Type', 'application\/json')
+    .end(function(err, res) {
+        if (err) throw err;
+      })
+})
+
+module.exports = app;
