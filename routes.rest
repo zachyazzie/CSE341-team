@@ -1,0 +1,76 @@
+ //LOCALHOST 
+ ### get all characters
+GET http://localhost:8080/characters/all
+
+### Get one cotact
+GET http://localhost:8080/characters/63694f2fa390b237bbd8fae2
+
+### Creating a contact
+POST http://localhost:8080/characters/create HTTP/1.1
+Content-Type: application/json
+
+{
+    "characterName":"Test",
+    "class":"Test",
+    "race":"Test",
+    "str":10,
+    "dex":10,
+    "con":10,
+    "int":10,
+    "wis":10,
+    "cha":10,
+    "armorClass":10,
+    "speed":10,
+    "hitPointMax":10,
+    "weapon1":{
+        "_id": "63642010a1c52e906ffcf1ba",
+        "weaponName": "Sun bow",
+        "description": "melee weapon (martial, sword)",
+        "category": "Items",
+        "damage": "1d8",
+        "damageType": "Radiant",
+        "itemRarity": "Standard",
+        "properties": "Finesse, Versatile",
+        "weight": 3
+    },
+    "spellsKnown":[]
+}
+
+
+### Update a contact
+PUT http://localhost:8080/characters/63694f2fa390b237bbd8fae2 HTTP/1.1
+Content-Type: application/json
+
+{
+    "characterName":"Updated",
+    "class":"Updated",
+    "race":"Updated",
+    "str":20,
+    "dex":20,
+    "con":20,
+    "int":20,
+    "wis":20,
+    "cha":20,
+    "armorClass":20,
+    "speed":20,
+    "hitPointMax":20,
+    "weapon1":{
+        "_id": "6364104eee3a4185c678ca2a",
+        "weaponName": "Sword",
+        "description": "melee weapon (martial, sword)",
+        "category": "Items",
+        "damage": "1d8",
+        "damageType": "Slashing",
+        "itemRarity": "Standard",
+        "properties": "Versatile",
+        "weight": 3
+        },
+    "spellsKnown":[]
+}
+
+### Deleteing a contact
+DELETE http://localhost:8080/characters/63694f2fa390b237bbd8fae2 HTTP/1.1
+
+
+
+// PRODUCTION Deploy 
