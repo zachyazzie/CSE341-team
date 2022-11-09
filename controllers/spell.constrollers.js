@@ -3,9 +3,10 @@ const Spell = require ('../models/spell.models');
 // see all spells
 const seeSpells = async (req,res)=>{
     try{
-    Spell.find({}).then(function (spells) {
-        res.status(200).send(spells);
-        })
+        const spells = await Spell.find({})
+        .lean()
+        .sort({date: 'desc'});
+        res.render('../views/spells/all-spells.hbs', { spells }).status(200)
     }catch(err){
         res.status(500)
     }
@@ -33,14 +34,20 @@ const editSpell = async (req,res)=>{
     const spellEdited = await Spell.findByIdAndUpdate(req.params.id, 
         {level, name, casting_time, duration, range, attack_save, effect});
     //res.redirect('/')
-    res.json(spellEdited)
+    //req.flash('success_msg', 'Game has been updated successfully')
+    res.redirect('/spell')
 }
+const seeEdition = async (req,res)=>{
+    const spellsi = await Spell.findById(req.params.id).lean()
+    res.render('../views/spells/edit-spells.hbs', {spellsi})
+  }
+
 
 // delete a spell
 const deleteSpell = async (req, res)=>{
     await Spell.findByIdAndDelete(req.params.id);
     //res.redirect('/');
-    res.json('message: delete spells here')
+    res.redirect('/spell');
 }
 
 module.exports = {
@@ -48,5 +55,6 @@ module.exports = {
     seeSpells,
     newSpell,
     oneSpell,
-    editSpell
+    editSpell,
+    seeEdition
 }
