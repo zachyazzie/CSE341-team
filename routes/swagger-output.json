@@ -1,0 +1,423 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "dandd",
+    "description": "This place has spells!",
+    "version": "1.0.0"
+  },
+  "host": "",
+  "basePath": "/",
+  "schemes": [
+    "http",
+    "http"
+  ],
+  "paths": {
+    "/weapons/all": {
+      "get": {
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/weapons/one/{postId}": {
+      "get": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "postId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/weapons/create": {
+      "post": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "weaponName": {
+                  "example": "any"
+                },
+                "description": {
+                  "example": "any"
+                },
+                "category": {
+                  "example": "any"
+                },
+                "damage": {
+                  "example": "any"
+                },
+                "damageType": {
+                  "example": "any"
+                },
+                "itemRarity": {
+                  "example": "any"
+                },
+                "properties": {
+                  "example": "any"
+                },
+                "weight": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/characters/create": {
+      "post": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "characterName": {
+                  "example": "any"
+                },
+                "class": {
+                  "example": "any"
+                },
+                "race": {
+                  "example": "any"
+                },
+                "str": {
+                  "example": "any"
+                },
+                "dex": {
+                  "example": "any"
+                },
+                "con": {
+                  "example": "any"
+                },
+                "int": {
+                  "example": "any"
+                },
+                "wis": {
+                  "example": "any"
+                },
+                "cha": {
+                  "example": "any"
+                },
+                "armorClass": {
+                  "example": "any"
+                },
+                "speed": {
+                  "example": "any"
+                },
+                "hitPointMax": {
+                  "example": "any"
+                },
+                "weapon1": {
+                  "example": "any"
+                },
+                "spellsKnown": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/characters/all": {
+      "get": {
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/characters/{id}": {
+      "get": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "put": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "characterName": {
+                  "example": "any"
+                },
+                "class": {
+                  "example": "any"
+                },
+                "race": {
+                  "example": "any"
+                },
+                "str": {
+                  "example": "any"
+                },
+                "dex": {
+                  "example": "any"
+                },
+                "con": {
+                  "example": "any"
+                },
+                "int": {
+                  "example": "any"
+                },
+                "wis": {
+                  "example": "any"
+                },
+                "cha": {
+                  "example": "any"
+                },
+                "armorClass": {
+                  "example": "any"
+                },
+                "speed": {
+                  "example": "any"
+                },
+                "hitPointMax": {
+                  "example": "any"
+                },
+                "weapon1": {
+                  "example": "any"
+                },
+                "spellsKnown": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "delete": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "202": {
+            "description": "Accepted"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/spell/": {
+      "get": {
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "post": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "level": {
+                  "example": "any"
+                },
+                "name": {
+                  "example": "any"
+                },
+                "casting_time": {
+                  "example": "any"
+                },
+                "duration": {
+                  "example": "any"
+                },
+                "range": {
+                  "example": "any"
+                },
+                "attack_save": {
+                  "example": "any"
+                },
+                "effect": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/spell/{id}": {
+      "get": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "put": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "level": {
+                  "example": "any"
+                },
+                "name": {
+                  "example": "any"
+                },
+                "casting_time": {
+                  "example": "any"
+                },
+                "duration": {
+                  "example": "any"
+                },
+                "range": {
+                  "example": "any"
+                },
+                "attack_save": {
+                  "example": "any"
+                },
+                "effect": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "delete": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    }
+  }
+}
