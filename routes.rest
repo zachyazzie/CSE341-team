@@ -1,3 +1,13 @@
+
+### Create game 
+POST http://localhost:8080/spell HTTP/1.1 
+content-type: application/json
+
+{"level": "uno","name":"Rome Total War", "casting_time":"awesome game", "duration":"RTS", "range":"10", "attack_save": "trololo", "effect": "nian" }
+
+### get all
+GET http://localhost:8080/spell
+
  //LOCALHOST 
  ### get all characters
 GET http://localhost:8080/characters/all
@@ -74,3 +84,4 @@ DELETE http://localhost:8080/characters/63694f2fa390b237bbd8fae2 HTTP/1.1
 
 
 // PRODUCTION Deploy 
+

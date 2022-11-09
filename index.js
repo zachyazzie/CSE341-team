@@ -1,3 +1,9 @@
+const {
+    errorLogger,
+    errorResponder,
+    invalidPathHandler,
+} = require('./middleware/middleware')
+
 const express = require('express');
 const cors = require('cors');
 const app = express();
@@ -6,12 +12,14 @@ const dotenv = require('dotenv');
 dotenv.config();
 
 const port = process.env.PORT || 8080;
-
+require('./db/database')
 app
   .use(cors())
   .use(express.json())
   .use(express.urlencoded({ extended: true }))
   .use('/', require('./routes'));
+
+app.invalidPathHandler;
 
 process.on('uncaughtException', (err, origin) => {
   console.log(
