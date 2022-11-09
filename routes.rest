@@ -2,7 +2,7 @@
 POST http://localhost:8080/spell HTTP/1.1 
 content-type: application/json
 
-{"level": "uno","namee":"Rome Total War", "casting_time":"awesome game", "duration":"RTS", "range":"10", "attack_save": "trololo", "effect": "nian" }
+{"level": "uno","name":"Rome Total War", "casting_time":"awesome game", "duration":"RTS", "range":"10", "attack_save": "trololo", "effect": "nian" }
 
 ### get all
 GET http://localhost:8080/spell
