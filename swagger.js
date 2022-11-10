@@ -7,7 +7,7 @@ const doc = {
   },
   host: '',
   schemes: [
-    'http', 'http'
+    'https', 'https'
   ],
 };
 
