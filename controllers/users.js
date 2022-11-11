@@ -37,33 +37,36 @@ const getUserById = async (req, res) => {
     });
 };
 
-// POST Therapist - CONSIDER DELETING THIS AS FIND OR CREATE MAY BE CONSIDERED A POST ROUTE
-const postUser = async (req, res) => {
-  // Create a new user // add character array to user
-  const user = new User({
-    identifier: req.body.sub,
-    email: req.body.email,
-    givenName: req.body.given_name,
-    familyName: req.body.family_name,
-    locale: req.body.locale,
-    picture: req.body.picture,
-  });
+// POST Therapist - NOT NEEDED
+// PER Brother Dransfield: creating the user as 
+// part of the authentication process can take the place
+// of a POST for users.
+// const postUser = async (req, res) => {
+//   // Create a new user // add character array to user
+//   const user = new User({
+//     identifier: req.body.sub,
+//     email: req.body.email,
+//     givenName: req.body.given_name,
+//     familyName: req.body.family_name,
+//     locale: req.body.locale,
+//     picture: req.body.picture,
+//   });
 
-  // save user
-  await user
-    .save(user)
-    .then((data) => {
-      res
-        .status(201)
-        .send(`New user added with the following id: ${data._id}`);
-    })
-    .catch((err) => {
-      res.status(500).send({
-        message:
-          err.message || "Some error occurred while creating the user.",
-      });
-    });
-};
+//   // save user
+//   await user
+//     .save(user)
+//     .then((data) => {
+//       res
+//         .status(201)
+//         .send(`New user added with the following id: ${data._id}`);
+//     })
+//     .catch((err) => {
+//       res.status(500).send({
+//         message:
+//           err.message || "Some error occurred while creating the user.",
+//       });
+//     });
+// };
 
 // PUT User (modify)
 const putUserById = async (req, res) => {
@@ -141,7 +144,6 @@ const deleteUserById = async (req, res) => {
 module.exports = {
   getUsers,
   getUserById,
-  postUser,
   putUserById,
   deleteUserById,
 };
