@@ -37,7 +37,7 @@ const getUserById = async (req, res) => {
     });
 };
 
-// POST Therapist - NOT NEEDED
+// POST User - NOT NEEDED
 // PER Brother Dransfield: creating the user as 
 // part of the authentication process can take the place
 // of a POST for users.
@@ -84,7 +84,7 @@ const putUserById = async (req, res) => {
     .then((data) => {
       if (!data) {
         res.status(404).send({
-          message: `Cannot update user with id=${id}. Therapist was not found!`,
+          message: `Cannot update user with id=${id}. User was not found!`,
         });
       } else
         res
@@ -126,7 +126,7 @@ const deleteUserById = async (req, res) => {
     .then((data) => {
       if (!data) {
         res.status(404).send({
-          message: `Cannot delete user with id=${id}. Maybe Therapist was not found!`,
+          message: `Cannot delete user with id=${id}. Maybe User was not found!`,
         });
       } else {
         res.status(200).send({
