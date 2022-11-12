@@ -1,4 +1,4 @@
-const { Schema, model } = require('mongoose');
+const { Schema, model } = require("mongoose");
 
 const userSchema = new Schema(
   {
@@ -27,10 +27,9 @@ const userSchema = new Schema(
     picture: {
       type: String,
     },
+    characters: [{ type: String }],
   },
   { collection: "users", timestamps: true }
 );
 
 module.exports = model("User", userSchema);
-
-// ADD ARRAY OF CHARACTERS - BUT WAIT TO HEAR FROM TEAM
