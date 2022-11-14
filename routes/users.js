@@ -8,7 +8,7 @@ const loadUser = require("../middleware/loadUser");
 
 router.get('/', usersController.getUsers);
 router.get('/:id', usersController.getUserById);
-//router.post('/', usersController.postUser); // SEE NOTE BELOW
+// post route handled by loaduser.js - SEE NOTE BELOW
 router.put('/:id', usersController.putUserById);
 router.delete('/:id', usersController.deleteUserById);
 
@@ -22,15 +22,7 @@ well as our DB. If we allow a separate POST route for users,
 then that user would never be authenticated because the ID
 would not match Google's ID. 
 
-Technically, I wouldn't want to delete a user in our DB
-without also being able to delete the user at Auth0, but 
-I think for this project it's probably fine to leave it that way.
-That way, if you really wanted to delete the user, you would go 
-to Auth0 to delete the user and then send the DELETE route 
-to delete the user from MongoDB.
-
-Other than that, PUT would only modify the array of character IDs
-for the user, and any other additional fields we may want to add.
-
-For that reason, the POST route is tentatively commented out.
+Per Brother Dransfield:
+Creating the user as part of the authentication process
+can take the place of a POST for users.
 */

@@ -1,7 +1,7 @@
 const appConfig = require("../config/db.config");
 const User = require("../models/user");
 
-const loadUser = async (req, res, next) => {  
+const loadUser = async (req, res, next) => {
   try {
     // get user info from Auth0
     const authZeroUser = await fetchAuthZeroUser(req.headers.authorization);
@@ -13,8 +13,10 @@ const loadUser = async (req, res, next) => {
     next();
   } catch (error) {
     // otherwise, send message denying access
-    res.status(401).send({ message: "Unauthorized Access. Access token required." })
-  }  
+    res
+      .status(401)
+      .send({ message: "Unauthorized Access. Access token required." });
+  }
 };
 
 // helper function: GET request - user info - need to pass in access token into header
@@ -50,6 +52,7 @@ const findOrCreateUser = async (authZeroUserJson) => {
       familyName: authZeroUserJson.family_name,
       locale: authZeroUserJson.locale,
       picture: authZeroUserJson.picture,
+      characters: [],
     });
     return newUser;
   } catch (error) {
