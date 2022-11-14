@@ -7,7 +7,7 @@ const {
     newSpell,
     oneSpell,
     editSpell
-} = require('../controllers/spell.constrollers')
+} = require('../controllers/spell.controllers')
 const loadUser = require("../middleware/loadUser");
 
 // require user - middleware - let's load the user before we proceed
