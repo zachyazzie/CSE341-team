@@ -6,7 +6,8 @@
   "scripts": {
     "dev": " nodemon index.js",
     "test": "cross-env NODE_ENV=test jest --watchAll",
-    "start": "node index.js"
+    "start": "node index.js",
+    "swagger-autogen": "node ./swagger.js"
   },
   "repository": {
     "type": "git",

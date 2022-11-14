@@ -1,20 +1,42 @@
 {
   "swagger": "2.0",
   "info": {
-    "title": "dandd",
-    "description": "This place has spells!",
+    "title": "D&D Character Sheet API",
+    "description": "The D&D Character Sheet API will provide game players access to their D&D character sheet, including their character name, stats, inventory, general information, and character notes.",
     "version": "1.0.0"
   },
-  "host": "",
+  "host": "dndapi.onrender.com",
   "basePath": "/",
   "schemes": [
     "http",
-    "http"
+    "https"
+  ],
+  "tags": [
+    {
+      "name": "Weapons",
+      "description": "Everything you need to know about Weapons"
+    },
+    {
+      "name": "Characters",
+      "description": "All routes for your Characters"
+    },
+    {
+      "name": "Spells",
+      "description": "Magic and wonder is found here"
+    },
+    {
+      "name": "Users",
+      "description": "Routes involving useres and their information"
+    }
   ],
   "paths": {
     "/weapons/all": {
       "get": {
-        "description": "",
+        "tags": [
+          "Weapons"
+        ],
+        "summary": "Return all weapons",
+        "description": "Return all weapons",
         "parameters": [],
         "responses": {
           "200": {
@@ -28,7 +50,11 @@
     },
     "/weapons/one/{postId}": {
       "get": {
-        "description": "",
+        "tags": [
+          "Weapons"
+        ],
+        "summary": "Return a single weapon using its _Id",
+        "description": "Return a single weapon using its _Id",
         "parameters": [
           {
             "name": "postId",
@@ -49,7 +75,11 @@
     },
     "/weapons/create": {
       "post": {
-        "description": "",
+        "tags": [
+          "Weapons"
+        ],
+        "summary": "Create a new weapon",
+        "description": "Create a new weapon",
         "parameters": [
           {
             "name": "body",
@@ -95,9 +125,223 @@
         }
       }
     },
+    "/characters/create": {
+      "post": {
+        "tags": [
+          "Characters"
+        ],
+        "summary": "Create a new character",
+        "description": "Create a new character",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "characterName": {
+                  "example": "String"
+                },
+                "class": {
+                  "example": "String"
+                },
+                "race": {
+                  "example": "String"
+                },
+                "str": {
+                  "example": 0
+                },
+                "dex": {
+                  "example": 0
+                },
+                "con": {
+                  "example": 0
+                },
+                "int": {
+                  "example": 0
+                },
+                "wis": {
+                  "example": 0
+                },
+                "cha": {
+                  "example": 0
+                },
+                "armorClass": {
+                  "example": 10
+                },
+                "speed": {
+                  "example": 30
+                },
+                "hitPointMax": {
+                  "example": 10
+                },
+                "weapon1": {
+                  "example": "_Id"
+                },
+                "spellsKnown": {
+                  "example": "_Id"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/characters/all": {
+      "get": {
+        "tags": [
+          "Characters"
+        ],
+        "summary": "Return all characters",
+        "description": "Return all characters",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/characters/{id}": {
+      "get": {
+        "tags": [
+          "Characters"
+        ],
+        "summary": "Return a single character using its _Id",
+        "description": "Return a single character using its _Id",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Characters"
+        ],
+        "summary": "Update a single character using its _Id",
+        "description": "Update a single character using its _Id",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "characterName": {
+                  "example": "String"
+                },
+                "class": {
+                  "example": "String"
+                },
+                "race": {
+                  "example": "String"
+                },
+                "str": {
+                  "example": 0
+                },
+                "dex": {
+                  "example": 0
+                },
+                "con": {
+                  "example": 0
+                },
+                "int": {
+                  "example": 0
+                },
+                "wis": {
+                  "example": 0
+                },
+                "cha": {
+                  "example": 0
+                },
+                "armorClass": {
+                  "example": 10
+                },
+                "speed": {
+                  "example": 30
+                },
+                "hitPointMax": {
+                  "example": 10
+                },
+                "weapon1": {
+                  "example": "_Id"
+                },
+                "spellsKnown": {
+                  "example": "_Id"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Characters"
+        ],
+        "summary": "Delete a single character using its _Id",
+        "description": "Delete a single character using its _Id",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "202": {
+            "description": "Accepted"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
     "/spell/": {
       "get": {
-        "description": "",
+        "tags": [
+          "Spells"
+        ],
+        "summary": "Return all spells",
+        "description": "Return all spells",
         "parameters": [],
         "responses": {
           "200": {
@@ -109,7 +353,11 @@
         }
       },
       "post": {
-        "description": "",
+        "tags": [
+          "Spells"
+        ],
+        "summary": "Create a new spell",
+        "description": "Create a new spell",
         "parameters": [
           {
             "name": "body",
@@ -151,7 +399,11 @@
     },
     "/spell/{id}": {
       "get": {
-        "description": "",
+        "tags": [
+          "Spells"
+        ],
+        "summary": "Return a single spell using its _Id",
+        "description": "Return a single spell using its _Id",
         "parameters": [
           {
             "name": "id",
@@ -167,7 +419,11 @@
         }
       },
       "put": {
-        "description": "",
+        "tags": [
+          "Spells"
+        ],
+        "summary": "Update a single spell using its _Id",
+        "description": "Update a single spell using its _Id",
         "parameters": [
           {
             "name": "id",
@@ -213,7 +469,11 @@
         }
       },
       "delete": {
-        "description": "",
+        "tags": [
+          "Spells"
+        ],
+        "summary": "Delete a single spell using its _Id",
+        "description": "Delete a single spell using its _Id",
         "parameters": [
           {
             "name": "id",
@@ -225,6 +485,131 @@
         "responses": {
           "200": {
             "description": "OK"
+          }
+        }
+      }
+    },
+    "/users/": {
+      "get": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "Return all users",
+        "description": "Return all users",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/users/{id}": {
+      "get": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "Return a single users using its _Id",
+        "description": "Return a single users using its _Id",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "Update a single users using its _Id",
+        "description": "Update a single users using its _Id",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "422": {
+            "description": "Unprocessable Entity"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "Delete a single users using its _Id",
+        "description": "Delete a single users using its _Id",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/userinfo/": {
+      "get": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "Return user information",
+        "description": "Return user information",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
           }
         }
       }
