@@ -1,14 +1,12 @@
 const weaponSchema = require('../models/weapons');
 
 //GETS ALL WEAPONS
-
-async function getAllWeapons (req,res){
-  try{
-      const weapons = await weaponSchema.find({})
-      .lean();
-      res.render('../views/weapons/all-weapons.hbs', { weapons }).status(200)
-  }catch(err){
-      res.status(500)
+async function getAllWeapons(req, res) {
+  try {
+    const weapons = await weaponSchema.find();
+    res.status(200).json(weapons);
+  } catch (err) {
+    res.status(500).json({ message: err });
   }
 }
 

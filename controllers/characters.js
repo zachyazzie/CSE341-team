@@ -5,7 +5,7 @@ const characterSchema  = require('../models/characters');
 async function getAllCharacters(req, res) {
     try {
       const characters = await characterSchema.find();
-      res.status(200).render('../views/character/all-characters.hbs', characters);
+      res.status(200).json(characters);
     } catch (err) {
       res.status(500).json({ message: err });
     }

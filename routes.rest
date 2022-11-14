@@ -8,6 +8,11 @@ content-type: application/json
 ### get all
 GET http://localhost:8080/spell
 
+### example of a get request with access token - need .vscode folder and .settings.json file to work
+GET http://localhost:8080/spell
+content-type: application/json
+Authorization: Bearer {{accessToken}}
+
  //LOCALHOST 
  ### get all characters
 GET http://localhost:8080/characters/all
