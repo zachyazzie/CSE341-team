@@ -24,13 +24,6 @@ describe("GET /spell/:id", () => {
       .expect("Content-Type", /json/)
       .expect(200, done);
   })
-  it("respond with a 500 status code", (done) => {
-    request(app)
-      .get("/spell/636441e86af28d94b9")
-      .set("Accept", "application/json")
-      .expect("Content-Type", /json/)
-      .expect(500, done);
-  })
 });
 /**
  * Testing POST spell endpoint
@@ -57,3 +50,4 @@ describe("GET /spell/:id", () => {
         done();
       });
   })});
+  

@@ -25,7 +25,7 @@ const newSpell = async (req, res)=>{
     const newSpell = new Spell(
         {level, name, casting_time, duration, range, attack_save, effect});
         await newSpell.save();
-        res.json(newSpell).status(200)
+        res.json(newSpell).status(201)
     }
     catch (err) {
         res.status(500)

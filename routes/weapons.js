@@ -7,7 +7,7 @@ const loadUser = require("../middleware/loadUser");
 // router.use([loadUser]); -- add this when we want to hook up auth0
 
 router.get('/all', weaponsController.getAllWeapons);
-router.get('/one/:postId', weaponsController.getOneWeapon);
+router.get('/one/:id', weaponsController.getOneWeapon);
 router.post('/create', weaponsController.createWeapon);
 
 module.exports = router;
