@@ -133,7 +133,7 @@ content-type: application/json
 Authorization: Bearer {{accessToken}}
 
 {
-  "characters": ["<ID>", "<ID>", "<ID>"]
+  "characters": "<enter id>"
 }
 ### DELETE user by ID
 DELETE https://dndapi.onrender.com/users/<ID>
