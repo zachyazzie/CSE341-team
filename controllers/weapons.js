@@ -40,8 +40,45 @@ async function createWeapon(req, res) {
   }
 }
 
+//UPDATE A WEAPON
+async function updateWeapon(req, res) {
+  try {
+    const updateWeapon = await weaponSchema.findOneAndUpdate(
+      { _id: req.params.postId },
+      {
+        weaponName: req.body.weaponName,
+        description: req.body.description,
+        category: req.body.category,
+        damage: req.body.damage,
+        damageType: req.body.damageType,
+        itemRarity: req.body.itemRarity,
+        properties: req.body.properties,
+        weight: req.body.weight,
+      }
+    );
+
+    res.status(200).json(updateWeapon);
+  } catch (err) {
+    res.status(500).json({ message: err });
+  }
+}
+
+//DELETE A WEAPON
+async function deleteWeapon(req, res) {
+  try {
+    const deleteWeapon = await weaponSchema.deleteOne({
+      _id: req.params.postId,
+    });
+    res.status(202).json(deleteWeapon);
+  } catch (err) {
+    res.status(500).json({ message: err });
+  }
+}
+
 module.exports = {
   getAllWeapons,
   getOneWeapon,
   createWeapon,
+  updateWeapon,
+  deleteWeapon,
 };
