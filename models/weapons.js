@@ -1,4 +1,4 @@
-const { Schema, model } = require('mongoose');
+const {Schema, model} = require('mongoose');
 
 const weaponsSchema = new Schema({
   weaponName: { type: String, unique: true },
@@ -11,4 +11,4 @@ const weaponsSchema = new Schema({
   weight: { type: Number },
 });
 
-module.exports = model('Weapons', weaponsSchema), weaponsSchema;
+module.exports = model('Weapons', weaponsSchema);

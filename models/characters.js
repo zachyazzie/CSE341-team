@@ -1,32 +1,61 @@
 const { Schema, model } = require('mongoose');
-const {weaponSchema, schema } = require('./weapons');
 
 const charactersSchema = new Schema({
-  characterName: { type: String},
-  class: { type: String },
-  race: { type: String },
-  //background: { type: String },
+  characterName: {
+    type: String,
+    required: true
+  },
+  class: {
+    type: String,
+    required: true 
+  },
+  race: {
+    type: String,
+    required: true 
+  },
   stats: {
-    str:{type: Number},
-    dex:{type: Number},
-    con:{type: Number},
-    int:{type: Number},
-    wis:{type: Number},
-    cha:{type: Number}
+    str:{
+      type: Number,
+      required: true 
+    },
+    dex:{
+      type: Number,
+      required: true
+    },
+    con:{
+      type: Number,
+      required: true
+    },
+    int:{
+      type: Number,
+      required: true
+    },
+    wis:{
+      type: Number,
+      required: true
+    },
+    cha:{
+      type: Number,
+      required: true
+    }
   },   
-  armorClass: { type: Number },
-  speed: { type: Number, 
-           validator: function(speed) {
-             return speed%5==0;
-           },
-           message: props => `${props.value} is not a valid Speed!`
+  armorClass: { 
+    type: Number,
+    required: true 
   },
-  hitPointMax: { type: Number },
-  //currentHitPoints: { type: Number },
-  weapon1:{
-    type: schema,
-    default: {}
+  speed: { 
+    type: Number, 
+    validator: function(speed) {
+      return speed%5==0;
+    },
+    message: props => `${props.value} is not a valid Speed!`,
+    required: true
   },
+  hitPointMax: { 
+    type: Number,
+    required: true
+  },
+  weapons: [],
   spellsKnown: []
 
 });
