@@ -29,6 +29,15 @@
       "description": "Routes involving useres and their information"
     }
   ],
+  "securityDefinitions": {
+    "Authorization": {
+      "type": "apiKey",
+      "name": "Authorization",
+      "in": "header",
+      "description": "Authentication token (Bearer)",
+      "example": "Bearer <your token>"
+    }
+  },
   "paths": {
     "/weapons/all": {
       "get": {
@@ -125,6 +134,88 @@
         }
       }
     },
+    "/weapons/{postId}": {
+      "put": {
+        "tags": [
+          "Weapons"
+        ],
+        "summary": "Update a single weapon using its _Id",
+        "description": "Update a single weapon using its _Id",
+        "parameters": [
+          {
+            "name": "postId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "weaponName": {
+                  "example": "any"
+                },
+                "description": {
+                  "example": "any"
+                },
+                "category": {
+                  "example": "any"
+                },
+                "damage": {
+                  "example": "any"
+                },
+                "damageType": {
+                  "example": "any"
+                },
+                "itemRarity": {
+                  "example": "any"
+                },
+                "properties": {
+                  "example": "any"
+                },
+                "weight": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Weapons"
+        ],
+        "summary": "Delete a single weapon using its _Id",
+        "description": "Delete a single weapon using its _Id",
+        "parameters": [
+          {
+            "name": "postId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "202": {
+            "description": "Accepted"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    
     "/characters/create": {
       "post": {
         "tags": [
@@ -614,5 +705,10 @@
         }
       }
     }
-  }
+  },
+  "security": [
+    {
+      "Authorization": []
+    }
+  ]
 }
