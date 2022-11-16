@@ -266,7 +266,7 @@
                 "hitPointMax": {
                   "example": 10
                 },
-                "weapon1": {
+                "weapons": {
                   "example": "_Id"
                 },
                 "spellsKnown": {
@@ -383,7 +383,7 @@
                 "hitPointMax": {
                   "example": 10
                 },
-                "weapon1": {
+                "weapons": {
                   "example": "_Id"
                 },
                 "spellsKnown": {

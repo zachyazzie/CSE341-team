@@ -39,8 +39,8 @@ async function getAllCharacters(req, res) {
         armorClass: req.body.armorClass,
         speed: req.body.speed,
         hitPointMax: req.body.hitPointMax,
-        weapon1: req.body.weapon1,
-        spellsKnown: req.body.spellsKnown
+        weapons: [req.body.weapon],
+        spellsKnown: [req.body.spellsKnown]
       
       });
       const savedCharacter = await character.save();
@@ -68,8 +68,8 @@ async function getAllCharacters(req, res) {
                 armorClass: req.body.armorClass,
                 speed: req.body.speed,
                 hitPointMax: req.body.hitPointMax,
-                weapon1: req.body.weapon1,
-                spellsKnown: req.body.spellsKnown
+                weapons: [req.body.weapon],
+                spellsKnown: [req.body.spellsKnown]
               }    
         );
 
@@ -97,4 +97,3 @@ module.exports = {
     updatedCharacter,
     deleteCharacter,
   };
-  

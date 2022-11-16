@@ -14,13 +14,13 @@ content-type: application/json
 Authorization: Bearer {{accessToken}}
 
  //LOCALHOST 
- ### get all characters
+### get all characters
 GET http://localhost:8080/characters/all
 
-### Get one cotact
-GET http://localhost:8080/characters/63694f2fa390b237bbd8fae2
+### Get one character
+GET http://localhost:8080/characters/6374735bd4be8aa3df44ccfa
 
-### Creating a contact
+### Creating a character
 POST http://localhost:8080/characters/create HTTP/1.1
 Content-Type: application/json
 
@@ -37,23 +37,13 @@ Content-Type: application/json
     "armorClass":10,
     "speed":10,
     "hitPointMax":10,
-    "weapon1":{
-        "_id": "63642010a1c52e906ffcf1ba",
-        "weaponName": "Sun bow",
-        "description": "melee weapon (martial, sword)",
-        "category": "Items",
-        "damage": "1d8",
-        "damageType": "Radiant",
-        "itemRarity": "Standard",
-        "properties": "Finesse, Versatile",
-        "weight": 3
-    },
-    "spellsKnown":[]
+    "weapons": "63642010a1c52e906ffcf1ba",
+    "spellsKnown":""
 }
 
 
-### Update a contact
-PUT http://localhost:8080/characters/63694f2fa390b237bbd8fae2 HTTP/1.1
+### Update a character
+PUT http://localhost:8080/characters/6374735bd4be8aa3df44ccfa HTTP/1.1
 Content-Type: application/json
 
 {
@@ -69,22 +59,12 @@ Content-Type: application/json
     "armorClass":20,
     "speed":20,
     "hitPointMax":20,
-    "weapon1":{
-        "_id": "6364104eee3a4185c678ca2a",
-        "weaponName": "Sword",
-        "description": "melee weapon (martial, sword)",
-        "category": "Items",
-        "damage": "1d8",
-        "damageType": "Slashing",
-        "itemRarity": "Standard",
-        "properties": "Versatile",
-        "weight": 3
-        },
-    "spellsKnown":[]
+    "weapons":"",
+    "spellsKnown":"63644bc63931e86af28d94bc"
 }
 
-### Deleteing a contact
-DELETE http://localhost:8080/characters/63694f2fa390b237bbd8fae2 HTTP/1.1
+### Deleteing a character
+DELETE http://localhost:8080/characters/6374735bd4be8aa3df44ccfa HTTP/1.1
 
 ### GET userinfo from Auth0
 GET http://localhost:8080/userinfo
