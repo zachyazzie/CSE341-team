@@ -1,38 +1,37 @@
-const Spell = require ('../models/spell.models');
+const Spell = require("../models/spell.models");
 
 // see all spells
-const seeSpells = async (req,res)=>{
-    try{
+const seeSpells = async (req, res) => {
+  try {
     Spell.find({}).then(function (spells) {
         res.json(spells).status(200);
         })
     }catch(err){
-        res.status(500)
+        res.status(500).json({ message: err });
     }
 }
 // see a specific spell
 const oneSpell = async (req,res)=>{
     try{
-    const spellFound = await Spell.findById(req.params.id).sort({date: 'desc'})
-    res.json(spellFound).status(200)
+    const spellFound = await Spell.findById(req.params.id).sort({date: 'desc'});
+    res.json(spellFound).status(200);
     }
     catch(err){
-        res.json(err).status(404)
+        res.status(500).json({ message: err });
     }
 }
 
 // create a new spell
-const newSpell = async (req, res)=>{
-
+const newSpell = async (req, res) => {
     const {level, name, casting_time, duration, range, attack_save, effect} = req.body;
     try{
     const newSpell = new Spell(
         {level, name, casting_time, duration, range, attack_save, effect});
         await newSpell.save();
-        res.json(newSpell).status(200)
+        res.json(newSpell).status(200);
     }
     catch (err) {
-        res.status(500)
+        res.status(500).json({ message: err });
     }
 }
 
@@ -46,7 +45,7 @@ const editSpell = async (req,res)=>{
     res.json(spellEdited).status(200)
     }
     catch{
-        res.status(500)
+        res.status(500).json({ message: err });
     }
 }
 
@@ -58,7 +57,7 @@ const deleteSpell = async (req, res)=>{
     res.status(200);
     }
     catch{
-        res.status(500);
+        rres.status(500).json({ message: err });
     }
 }
 
