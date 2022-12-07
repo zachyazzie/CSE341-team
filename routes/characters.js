@@ -4,7 +4,7 @@ const router = Router();
 const loadUser = require("../middleware/loadUser");
 
 // require user - middleware - let's load the user before we proceed
-router.use([loadUser]);
+// router.use([loadUser]);
 
 router.post('/create', charactersController.createCharacter);
 router.get('/all', charactersController.getAllCharacters);
