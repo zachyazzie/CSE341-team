@@ -3,7 +3,7 @@ const User = require("../models/user");
 
 // Get Users
 const getUsers = async (req, res) => {
-  await Library.find()
+  await User.find()
     .then((data) => {
       if (!data) res.status(404).send({ message: "No data returned" });
       else res.status(200).json(data);

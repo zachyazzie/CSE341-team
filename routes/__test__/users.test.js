@@ -1,16 +1,39 @@
-const request = require('supertest');
-const app = require ('../../index');
+const usersRouter = require("../users");
+const routesFor = require("./routesFor"); // see helper function
+const request = require("supertest");
+const app = require("../../index");
 
-/**
- * Testing get all users
- */
+const routes = routesFor(usersRouter);
 
-describe("GET /users", ()=>{
-  it("responds with json containing a list of all users", (done) => {
-    request(app)
-      .get("/users")
+describe("routes", () => {
+  describe("/", () => {
+    it("supports http GET", () => {
+      expect(routes["/"]).toContain("get");
+    });
+
+    it("supports http GET id", () => {
+      expect(routes["/:id"]).toContain("get");
+    });
+
+    it("supports http PUT id", () => {
+      expect(routes["/:id"]).toContain("put");
+    });
+
+    it("supports http DELETE id", () => {
+      expect(routes["/:id"]).toContain("delete");
+    });
+  });
+});
+
+describe("GET /users/", () => {
+  it("respond with json content type and 200 status", async () => {
+    const response = await request(app)
+      .get("/users/")
       .set("Accept", "application/json")
-      .expect("Content-Type", /json/)
-      .expect(200, done);
-  })
+      .set('Authorization', 'bearer ' + process.env.ACCESS_TOKEN);
+    expect(response.headers["content-type"]).toEqual(
+      "application/json; charset=utf-8"
+    );
+    expect(response.status).toEqual(200);
+  });
 });
