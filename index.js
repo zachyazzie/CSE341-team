@@ -28,16 +28,21 @@ process.on('uncaughtException', (err, origin) => {
   );
 });
 
-//Connect to DB
-mongoose
-  .connect(process.env.DB_CONNECTION_STRING)
-
-  .then(() => {
-    app.listen(port);
-    console.log(`Connected to DB and listening on ${port}`);
-  })
-  .catch((err) => {
-    console.error('Error connecting to Mongo', err);
-  });
+//Connect to DB only if not in test
+if(process.env.NODE_ENV !== 'test') {
+  mongoose
+    .connect(process.env.DB_CONNECTION_STRING)
+  
+    .then(() => {
+      app.listen(port);
+      console.log(`Connected to DB and listening on ${port}`);
+    })
+    .catch((err) => {
+      console.error('Error connecting to Mongo', err);
+    });
+} else {
+  // we should be in test mode
+  console.log(`NODE_ENV: ${process.env.NODE_ENV}`);
+}
 
   module.exports = app;
