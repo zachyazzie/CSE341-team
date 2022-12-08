@@ -39,3 +39,5 @@ mongoose
   .catch((err) => {
     console.error('Error connecting to Mongo', err);
   });
+
+  module.exports = app;

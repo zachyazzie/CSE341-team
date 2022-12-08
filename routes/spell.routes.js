@@ -11,7 +11,7 @@ const {
 const loadUser = require("../middleware/loadUser");
 
 // require user - middleware - let's load the user before we proceed
-router.use([loadUser]); 
+// router.use([loadUser]); 
 
 // Get all spells
 router.get('/', seeSpells)
