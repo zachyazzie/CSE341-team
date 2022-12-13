@@ -57,7 +57,7 @@ const deleteSpell = async (req, res)=>{
     res.status(200);
     }
     catch{
-        rres.status(500).json({ message: err });
+        res.status(500).json({ message: err });
     }
 }
 
