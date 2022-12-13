@@ -54,7 +54,7 @@ const deleteSpell = async (req, res)=>{
     try{
     await Spell.findByIdAndDelete(req.params.id);
     //res.redirect('/');
-    res.sendStatus(200).send({message: "user was deleted successfully!",});
+    res.sendStatus(200).send({message: "spell was deleted successfully!",});
     }
     catch{
         res.status(500).json({ message: err });
