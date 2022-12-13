@@ -2,7 +2,7 @@
   "swagger": "2.0",
   "info": {
     "title": "D&D Character Sheet API",
-    "description": "The D&D Character Sheet API will provide game players access to their D&D character sheet, including their character name, stats, inventory, general information, and character notes.",
+    "description": "The D&D Character Sheet API will provide game players access to their D&D character sheet, including their character name, stats, inventory, general information, and character notes. You can get your access token at https://dndapi.onrender.com/authorization/login",
     "version": "1.0.0"
   },
   "host": "dndapi.onrender.com",
@@ -34,7 +34,7 @@
       "type": "apiKey",
       "name": "Authorization",
       "in": "header",
-      "description": "Authentication token (Bearer)",
+      "description": "Authentication token(Bearer) Remember to type Bearer before your access token.",
       "example": "Bearer <your token>"
     }
   },
