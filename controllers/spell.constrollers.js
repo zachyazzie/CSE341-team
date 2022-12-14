@@ -52,9 +52,9 @@ const editSpell = async (req,res)=>{
 // delete a spell
 const deleteSpell = async (req, res)=>{
     try{
-    await Spell.findByIdAndDelete(req.params.id);
+    const deleteSpell = await Spell.findByIdAndDelete(req.params.id);
     //res.redirect('/');
-    res.sendStatus(200).send({message: "user was deleted successfully!",});
+    res.status(202).json(deleteSpell);
     }
     catch{
         res.status(500).json({ message: err });

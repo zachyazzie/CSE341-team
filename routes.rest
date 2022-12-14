@@ -13,6 +13,11 @@ GET http://localhost:8080/spell
 content-type: application/json
 Authorization: Bearer {{accessToken}}
 
+### DELETE spell by ID
+DELETE http://localhost:8080/spell/63644bc63931e86af28d94bc
+content-type: application/json
+Authorization: Bearer {{accessToken}}
+
  //LOCALHOST 
 ### get all characters
 GET http://localhost:8080/characters/all
